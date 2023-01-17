@@ -1,7 +1,6 @@
 import pycaret
-from pycaret import *
-
-from pycaret.classification import load_model, predict_model
+#from pycaret import *
+#from pycaret.classification import load_model, predict_model
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -9,10 +8,10 @@ import numpy as np
 
 def predict_quality(model, df):
     
-    predictions_data = predict_model(estimator = model, data = df)
+    predictions_data = pycaret.classification.predict_model(estimator = model, data = df)
     return predictions_data['Label'][0]
     
-model = load_model('extra_tree_model')
+model = pycaret.classification.load_model('extra_tree_model')
 
 
 st.title('Wine Quality Classifier Web App')
