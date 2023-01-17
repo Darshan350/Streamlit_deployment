@@ -5,13 +5,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-
+model = load_model('deployment_28042020.pkl')
 def predict_quality(model, df):
     
     predictions_data = predict_model(estimator = model, data = df)
     return predictions_data['Label'][0]
     
-model = load_model('extra_tree_model')
 
 
 st.title('Wine Quality Classifier Web App')
